@@ -135,7 +135,28 @@
 
 </head>
 
+
+
+
+
+
+
+
+
 <body>
+
+	<% if (!user) { %>
+	<div
+		style="width: 500px; height: 180px; background-color: #ececec; padding: 80px; margin-left: 22%; margin-top: 9%;">
+		<h2 style="font-size: 40px;">Welcome! Please log in.</h2>
+		<a href="/auth/facebook"><img src="fb-login.jpg" width="151"
+			height="24"></a>
+	</div>
+	<% } else { %>
+
+
+
+
 	<div class="mobile-dashboard" ng-app="quizApp">
 		<dl>
 			<dt class="cs">
@@ -147,51 +168,63 @@
 				<i class="fa fa-search"></i>&nbsp;Learn about your new city
 			</dt>
 			<dd>
-			<h2>Living in Turkey! </h2> 
-			
-			<img alt="" src="images/i1.jpg " width="80%">
-			
-			<p>The vast majority of Turkey’s population
-				is Sunni Muslim, like Syria. Unlike Syria, Turkish is the official
-				language of Turkey. </p>
-				
-				<img alt="" src="images/i2.jpg" width="80%">
-				
-				<p>In work environments, building trust is
-				critical. Try not to discuss business right away without getting to
-				know a person first. 
-				</p>
-				<p>
-				Family is sacred, so speaking ill of family is
-				not OK.</p>
-				
-				<p> Turkish people stand close to each other during a
-				conversation. This should not cause concern itself.
-				</p>
-				
-				<img alt="" src="images/i3.jpg" width="80%">
-				
-				 <p>The following
-				gestures can be considered offensive, so avoid them if possible:</p>
+				<h2>Living in Turkey!</h2>
 
-				<p>
-				Standing with hands on your hips on in pockets. </p>
-				<p>
-				 Pointing at someone with your finger. </p>
-				 <p>
-				 Showing the soles of your feet.</p>
-				 <p> Making “OK” sign with your hand.</p>
-				 
-				 <img alt="" src="images/i5.jpg" width="80%">
-				 
-				 </dd>
+				<img alt="" src="images/i1.jpg " width="80%">
+
+				<p>The vast majority of Turkey’s population is Sunni Muslim,
+					like Syria. Unlike Syria, Turkish is the official language of
+					Turkey.</p>
+
+				<img alt="" src="images/i2.jpg" width="80%">
+
+				<p>In work environments, building trust is critical. Try not to
+					discuss business right away without getting to know a person first.
+				</p>
+				<p>Family is sacred, so speaking ill of family is not OK.</p>
+
+				<p>Turkish people stand close to each other during a
+					conversation. This should not cause concern itself.</p>
+
+				<img alt="" src="images/i3.jpg" width="80%">
+
+				<p>The following gestures can be considered offensive, so avoid
+					them if possible:</p>
+
+				<p>Standing with hands on your hips on in pockets.</p>
+				<p>Pointing at someone with your finger.</p>
+				<p>Showing the soles of your feet.</p>
+				<p>Making “OK” sign with your hand.</p>
+
+				<img alt="" src="images/i5.jpg" width="80%">
+
+			</dd>
 
 
 			<dt class="math">
-				<i class="fa fa-search"></i>&nbsp;NGO partner Dash!
+				<i class="fa fa-search"></i>&nbsp;Connect with your mentors
 			</dt>
 			<dd>
-				<div class='row'>
+
+				<div>
+					<table>
+						<tr>
+
+							<% for(var i in mentors) { %>
+							<td><img src="<%=mentors[i].fbid%>.png" height="200px"
+								width="200px" />
+								<p>
+									<span id="item3-description"> <a
+										href="https://www.facebook.com/<%=mentors[i].fbid%>"><h3><%=
+												mentors[i].name %></h3></a>
+									</span>
+								</p></td> <% } %>
+						</tr>
+					</table>
+				</div>
+
+
+				<!-- <div class='row'>
 					<div class='flex-2'>
 						<div class='show-grid'></div>
 					</div>
@@ -208,7 +241,7 @@
 						<div class='show-grid'></div>
 					</div>
 				</div>
-				<hr>
+				<hr> -->
 			</dd>
 
 			<dt class="physics">
@@ -225,10 +258,18 @@
 
 			</dd>
 
-			<div class="science" id="coming-soon">
+			<dt class="science">
 				<i class="fa fa-book"></i>&nbsp;Links to learn more!
-			</div>
-			<dd></dd>
+			</dt>
+			<dd>
+
+				<img alt="" src="images/cs.jpg" width="80%">
+				<img alt="" src="images/cs2.jpg" width="80%">
+				<img alt="" src="images/cs3.png" width="80%">
+				<img alt="" src="images/cs4.png" width="80%">
+				<img alt="" src="images/c5.png" width="80%">
+
+			</dd>
 
 		</dl>
 	</div>
@@ -246,5 +287,6 @@
 
 	<script src="../js/index.js"></script>
 
+	<% } %>
 </body>
 </html>

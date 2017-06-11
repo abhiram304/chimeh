@@ -86,8 +86,13 @@ app.get('/', function(req, res){
 	console.log(req.user.id);
 	req.session.userid = req.user.id;
 	console.log(req.session.userid);
+	res.redirect('/myFHomepage');
+	
 	}
-  res.render('index', { user: req.user });
+  //res.render('temp', { user: req.user });
+	else{
+		res.render('index', { user: req.user });
+	}
 });
 
 app.get('/start', function(req, res){
@@ -121,6 +126,7 @@ app.get('/temp',social.temp);
 app.get('/findMentor',social.findMentor);
 app.get('/verbal',social.verbalSorted);
 app.get('/filter',social.filterSuggestions);
+app.get('/myFHomepage',social.findMentor);
 
 
 function ensureAuthenticated(req, res, next) {

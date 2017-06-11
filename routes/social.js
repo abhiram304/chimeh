@@ -97,7 +97,8 @@ exports.findMentor = function(req, res){
 					}
 					else 
 					{
-						res.render('social', { mentors: ress });
+						user = req.session.userid;
+						res.render('social', { mentors: ress, user: user });
 					}
 				}, mathSortQuery);
 			} else {
@@ -110,7 +111,8 @@ exports.findMentor = function(req, res){
 					}
 					else 
 					{
-						res.render('social', { mentors: ress });
+						user = req.session.userid;
+						res.render('temp', { mentors: ress, user: user });
 					}
 				},getVerbalSorted);
 			}
