@@ -9,6 +9,8 @@ var express           =     require('express')
   , mysql             =     require('mysql')
   , app               =     express();
 
+var social = require('./routes/social');
+
 //Define MySQL parameter in Config.js file.
 var connection = mysql.createConnection({
   host     : config.host,
@@ -98,6 +100,8 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+app.get('/social',social.homePage);
 
 
 function ensureAuthenticated(req, res, next) {
