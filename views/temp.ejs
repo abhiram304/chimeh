@@ -137,13 +137,30 @@
 
 
 
+<style>
 
+body {
+
+background-image: url(images/bg.jpg);
+
+
+}
+
+.mobile-dashboard {
+
+background-image: url(images/bg.jpg);
+
+}
+
+</style>
 
 
 
 
 
 <body>
+
+
 
 	<% if (!user) { %>
 	<div
@@ -159,15 +176,15 @@
 
 	<div class="mobile-dashboard" ng-app="quizApp">
 		<dl>
-			<dt class="cs">
+			<!-- <dt class="cs">
 				<i class="fa fa-comments-o"></i>&nbsp;Find Friends
 			</dt>
-			<dd class="hide"></dd>
+			<dd class="hide"></dd> -->
 
 			<dt class="eng">
 				<i class="fa fa-search"></i>&nbsp;Learn about your new city
 			</dt>
-			<dd>
+			<dd class="hide">
 				<h2>Living in Turkey!</h2>
 
 				<img alt="" src="images/i1.jpg " width="80%">
@@ -202,7 +219,7 @@
 
 
 			<dt class="math">
-				<i class="fa fa-search"></i>&nbsp;Connect with your mentors
+				<i class="fa fa-search"></i>&nbsp;Connect with your mentors and find friends
 			</dt>
 			<dd>
 
@@ -245,7 +262,7 @@
 			</dd>
 
 			<dt class="physics">
-				<i class="fa fa-gamepad"></i>&nbsp;Play Educational Games!
+				<i class="fa fa-gamepad"></i>&nbsp;Take a Quiz!
 			</dt>
 			<dd>
 
@@ -259,15 +276,15 @@
 			</dd>
 
 			<dt class="science">
-				<i class="fa fa-book"></i>&nbsp;Links to learn more!
+				<i class="fa fa-book"></i>&nbsp;Educational Games
 			</dt>
 			<dd>
 
-				<img alt="" src="images/cs.jpg" width="80%">
-				<img alt="" src="images/cs2.jpg" width="80%">
-				<img alt="" src="images/cs3.png" width="80%">
-				<img alt="" src="images/cs4.png" width="80%">
-				<img alt="" src="images/c5.png" width="80%">
+				<a href="https://www.coursera.org/"><img alt="" src="images/cs.jpg" width="30%"></a><br>
+				<img alt="" src="images/cs2.jpg" width="30%"><br>
+				<img alt="" src="images/cs3.png" width="30%"><br>
+				<img alt="" src="images/cs4.png" width="30%"><br>
+				<img alt="" src="images/cs5.jpg" width="30%"><br>
 
 			</dd>
 
