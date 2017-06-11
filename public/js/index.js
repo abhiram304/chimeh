@@ -1,5 +1,7 @@
 (function(){
  
+	
+	
 	$("#unavailable, #unavailable-2").click(function() {
 		$("#coming-soon-msg").css("display", "none");
 		$("#unavailable-msg").slideDown(100);
@@ -20,4 +22,13 @@
       $(this).next().slideToggle(200);
     });
   
+  $('button').on('click',function(e) {
+	    if ($(this).hasClass('grid')) {
+	        $('#container ul').removeClass('list').addClass('grid');
+	    }
+	    else if($(this).hasClass('list')) {
+	        $('#container ul').removeClass('grid').addClass('list');
+	    }
+	});
  })();
+

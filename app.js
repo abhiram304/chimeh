@@ -56,7 +56,7 @@ passport.use(new FacebookStrategy({
         if(rows.length===0)
           {
             console.log("There is no such user, adding now "+ JSON.stringify(profile));
-            connection.query("INSERT into user(name, fbid, email) VALUES('"+profile.displayName+"','"+profile.id+"', '"+profile.emails[0].value+"')");
+            connection.query("INSERT into user(name, fbid, email) VALUES('"+profile.name.givenName+"','"+profile.id+"', '"+profile.emails[0].value+"')");
           }
           else
             {
@@ -80,6 +80,13 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
+	
+	if(req.user!=null){
+	
+	console.log(req.user.id);
+	req.session.userid = req.user.id;
+	console.log(req.session.userid);
+	}
   res.render('index', { user: req.user });
 });
 
@@ -88,6 +95,9 @@ app.get('/start', function(req, res){
 	});
 
 app.get('/account', ensureAuthenticated, function(req, res){
+//		console.log(req.user.id);
+//		req.session.userid = req.user.id;
+//		console.log(req.session.userid);
   res.render('account', { user: req.user });
 });
 
@@ -108,8 +118,9 @@ app.get('/logout', function(req, res){
 
 app.get('/social',social.homePage);
 app.get('/temp',social.temp);
-app.get('/math',social.mathSorted);
+app.get('/findMentor',social.findMentor);
 app.get('/verbal',social.verbalSorted);
+app.get('/filter',social.filterSuggestions);
 
 
 function ensureAuthenticated(req, res, next) {
