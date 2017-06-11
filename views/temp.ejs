@@ -7,126 +7,121 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 <script type="text/javascript">
-  
-  
-  
-  
-  var app = angular.module('quizApp', []);
+	var app = angular.module('quizApp', []);
 
-  app.directive('quiz', function(quizFactory) {
-  	return {
-  		restrict: 'AE',
-  		scope: {},
-  		templateUrl: 'template.html',
-  		link: function(scope, elem, attrs) {
-  			scope.start = function() {
-  				scope.id = 0;
-  				scope.quizOver = false;
-  				scope.inProgress = true;
-  				scope.getQuestion();
-  			};
+	app.directive('quiz', function(quizFactory) {
+		return {
+			restrict : 'AE',
+			scope : {},
+			templateUrl : 'template.html',
+			link : function(scope, elem, attrs) {
+				scope.start = function() {
+					scope.id = 0;
+					scope.quizOver = false;
+					scope.inProgress = true;
+					scope.getQuestion();
+				};
 
-  			scope.reset = function() {
-  				scope.inProgress = false;
-  				scope.score = 0;
-  			}
+				scope.reset = function() {
+					scope.inProgress = false;
+					scope.score = 0;
+				}
 
-  			scope.getQuestion = function() {
-  				var q = quizFactory.getQuestion(scope.id);
-  				if(q) {
-  					scope.question = q.question;
-  					scope.options = q.options;
-  					scope.answer = q.answer;
-  					scope.answerMode = true;
-  					//scope.imageName = "pic1.png";
-  					//alert(q.img);
-  					if(q.img != null){
-  						scope.showimage = true;
-  						scope.imageName = q.img;
-  					}
-  					else{
-  						scope.showimage = false;
-  					}
-  				} else {
-  					scope.quizOver = true;
-  				}
-  			};
+				scope.getQuestion = function() {
+					var q = quizFactory.getQuestion(scope.id);
+					if (q) {
+						scope.question = q.question;
+						scope.options = q.options;
+						scope.answer = q.answer;
+						scope.answerMode = true;
+						//scope.imageName = "pic1.png";
+						//alert(q.img);
+						if (q.img != null) {
+							scope.showimage = true;
+							scope.imageName = q.img;
+						} else {
+							scope.showimage = false;
+						}
+					} else {
+						scope.quizOver = true;
+					}
+				};
 
-  			scope.checkAnswer = function() {
-  				if(!$('input[name=answer]:checked').length) return;
+				scope.checkAnswer = function() {
+					if (!$('input[name=answer]:checked').length)
+						return;
 
-  				var ans = $('input[name=answer]:checked').val();
+					var ans = $('input[name=answer]:checked').val();
 
-  				if(ans == scope.options[scope.answer]) {
-  					scope.score++;
-  					scope.correctAns = true;
-  				} else {
-  					scope.correctAns = false;
-  				}
+					if (ans == scope.options[scope.answer]) {
+						scope.score++;
+						scope.correctAns = true;
+					} else {
+						scope.correctAns = false;
+					}
 
-  				scope.answerMode = false;
-  			};
+					scope.answerMode = false;
+				};
 
-  			scope.nextQuestion = function() {
-  				scope.id++;
-  				scope.getQuestion();
-  			}
+				scope.nextQuestion = function() {
+					scope.id++;
+					scope.getQuestion();
+				}
 
-  			scope.reset();
-  		}
-  	}
-  });
+				scope.reset();
+			}
+		}
+	});
 
-  app.factory('quizFactory', function() {
-  	var questions = [
-  		{
-  			img: "pic1.png",
-  			question: "Is it appropriate to with strangers?",
-  			options: ["Yes", "No"],
-  			answer: 1
-  		},
-  		{
-  			img: null,
-  			question: "Should you wash your hands before eating your food?",
-  			options: ["Yes", "No"],
-  			answer: 0
-  		},
-  		{
-  			img: "pic2.png",
-  			question: "",
-  			options: ["True", "False"],
-  			answer: 0
-  		},
-  		{
-  			img: null,
-  			question: "What is 14*5?",
-  			options: ["55", "60", "65", "70"],
-  			answer: 3
-  		},
-  		{	
-  			img: null,
-  			question: "Who invented telephone?",
-  			options: ["Albert Einstein", "Alexander Graham Bell", "Isaac Newton", "Marie Curie"],
-  			answer: 1
-  		}
-  	];
+	app
+			.factory(
+					'quizFactory',
+					function() {
+						var questions = [
+								{
+									img : "pic1.png",
+									question : "Is it appropriate to with strangers?",
+									options : [ "Yes", "No" ],
+									answer : 1
+								},
+								{
+									img : null,
+									question : "Should you wash your hands before eating your food?",
+									options : [ "Yes", "No" ],
+									answer : 0
+								},
+								{
+									img : "pic2.png",
+									question : "",
+									options : [ "True", "False" ],
+									answer : 0
+								},
+								{
+									img : null,
+									question : "What is 14*5?",
+									options : [ "55", "60", "65", "70" ],
+									answer : 3
+								},
+								{
+									img : null,
+									question : "Who invented telephone?",
+									options : [ "Albert Einstein",
+											"Alexander Graham Bell",
+											"Isaac Newton", "Marie Curie" ],
+									answer : 1
+								} ];
 
-  	return {
-  		getQuestion: function(id) {
-  			if(id < questions.length) {
-  				return questions[id];
-  			} else {
-  				return false;
-  			}
-  		}
-  	};
-  });
-  
-  
-  
-  
-  
-  </script>
+						return {
+							getQuestion : function(id) {
+								if (id < questions.length) {
+									return questions[id];
+								} else {
+									return false;
+								}
+							}
+						};
+					});
+</script>
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -138,27 +133,35 @@
 
 
 <style>
-
 body {
-
-background-image: url(images/bg.jpg);
-
-
+	background-image: url(images/bg.jpg);
 }
 
 .mobile-dashboard {
-
-background-image: url(images/bg.jpg);
-
+	background-image: url(images/bg.jpg);
 }
-
 </style>
 
 
 
 
 
+
+
 <body>
+
+
+	<div id="google_translate_element"></div>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage : 'en',
+				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
+			}, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript"
+		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
@@ -219,7 +222,8 @@ background-image: url(images/bg.jpg);
 
 
 			<dt class="math">
-				<i class="fa fa-search"></i>&nbsp;Connect with your mentors and find friends
+				<i class="fa fa-search"></i>&nbsp;Connect with your mentors and find
+				friends
 			</dt>
 			<dd>
 
@@ -237,6 +241,18 @@ background-image: url(images/bg.jpg);
 									</span>
 								</p></td> <% } %>
 						</tr>
+						<tr>
+
+							<td><img src="<%=mentors[i].fbid%>.png" height="200px"
+								width="200px" />
+								<p>
+									<span id="item3-description"> <a
+										href="https://www.facebook.com/<%=mentors[i].fbid%>"><h3><%=
+												mentors[i].name %></h3></a>
+									</span>
+								</p></td>
+						</tr>
+
 					</table>
 				</div>
 
@@ -280,11 +296,18 @@ background-image: url(images/bg.jpg);
 			</dt>
 			<dd>
 
-				<a href="https://www.coursera.org/"><img alt="" src="images/cs.jpg" width="30%"></a><br>
-				<img alt="" src="images/cs2.jpg" width="30%"><br>
-				<img alt="" src="images/cs3.png" width="30%"><br>
-				<img alt="" src="images/cs4.png" width="30%"><br>
-				<img alt="" src="images/cs5.jpg" width="30%"><br>
+				<a border="3" href="https://refugees.coursera.org/"><img
+					style="border-style: solid;" border="3" alt="" src="images/cs.jpg"
+					width="30%"></a><br>
+				<br> <img border="3" alt="" style="border-style: solid;"
+					src="images/cs2.jpg" width="30%"><br>
+				<br> <img border="3" alt="" style="border-style: solid;"
+					src="images/cs3.png" width="30%"><br>
+				<br> <img border="3" alt="" style="border-style: solid;"
+					src="images/cs4.png" width="30%"><br>
+				<br> <img border="3" alt="" style="border-style: solid;"
+					src="images/cs5.jpg" width="30%"><br>
+				<br>
 
 			</dd>
 
