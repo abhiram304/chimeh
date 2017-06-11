@@ -16,11 +16,44 @@ exports.homePage = function(req, res){
 			//console.log("hashtag.js1 userid "+hashtagid);
 
 
-
 		}
 	},getUsers);
 	
 	
+
+	
+};
+
+exports.verbalSorted = function(req, res){
+	
+	var getVerbalSorted="select * from user where usertype='mentor' order by verbal_rating asc limit 2";
+	//console.log("gettweetidquery is "+insertTweet);
+	mysql.fetchData(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			res.render('social', { mentors: results });
+		}
+	},getVerbalSorted);
+
+	
+};
+
+exports.mathSorted = function(req, res){
+	
+	var mathSortQuery="select * from user where usertype='mentor' order by math_rating asc limit 2";
+	//console.log("gettweetidquery is "+insertTweet);
+	mysql.fetchData(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			res.render('social', { mentors: results });
+		}
+	},mathSortQuery);
 
 	
 };

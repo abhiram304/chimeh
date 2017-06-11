@@ -41,7 +41,8 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new FacebookStrategy({
     clientID: config.facebook_api_key,
     clientSecret:config.facebook_api_secret ,
-    callbackURL: config.callback_url
+    callbackURL: config.callback_url ,
+    profileFields: ['id', 'emails', 'name']
   },
   function(accessToken, refreshToken, profile, done) {
 	  console.log("passport used");
@@ -55,7 +56,7 @@ passport.use(new FacebookStrategy({
         if(rows.length===0)
           {
             console.log("There is no such user, adding now "+ JSON.stringify(profile));
-            connection.query("INSERT into user(name, fbid) VALUES('"+profile.displayName+"','"+profile.id+"')");
+            connection.query("INSERT into user(name, fbid, email) VALUES('"+profile.displayName+"','"+profile.id+"', '"+profile.emails[0].value+"')");
           }
           else
             {
@@ -91,7 +92,7 @@ app.get('/account', ensureAuthenticated, function(req, res){
 });
 
 app.get('/auth/facebook', passport.authenticate('facebook',{scope:'email'}));
-
+app.get('/connect/facebook', passport.authorize('facebook', { scope : ['email'] }));
 
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { successRedirect : '/', failureRedirect: '/login' }),
@@ -107,6 +108,8 @@ app.get('/logout', function(req, res){
 
 app.get('/social',social.homePage);
 app.get('/temp',social.temp);
+app.get('/math',social.mathSorted);
+app.get('/verbal',social.verbalSorted);
 
 
 function ensureAuthenticated(req, res, next) {
