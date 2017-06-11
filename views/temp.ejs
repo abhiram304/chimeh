@@ -233,15 +233,7 @@ body {
 					<table>
 						<tr>
 
-							<% for(var i in mentors) { %>
-							<td><img src="<%=mentors[i].fbid%>.png" height="200px"
-								width="200px" />
-								<p>
-									<span id="item3-description"> <a
-										href="https://www.facebook.com/<%=mentors[i].fbid%>"><h3><%=
-												mentors[i].name %></h3></a>
-									</span>
-								</p></td> <% } %>
+							
 
 
 
@@ -256,6 +248,16 @@ body {
 									<span id="item3-description"> <a href=""><h3>Zareen</h3></a>
 									</span>
 								</p></td>
+								
+								<% for(var i in mentors) { %>
+							<td><img src="<%=mentors[i].fbid%>.png" height="200px"
+								width="200px" />
+								<p>
+									<span id="item3-description"> <a
+										href="https://www.facebook.com/<%=mentors[i].fbid%>"><h3><%=
+												mentors[i].name %></h3></a>
+									</span>
+								</p></td> <% } %>
 						</tr>
 						<tr>
 
