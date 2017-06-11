@@ -106,6 +106,7 @@ app.get('/logout', function(req, res){
 });
 
 app.get('/social',social.homePage);
+app.get('/temp',social.temp);
 
 
 function ensureAuthenticated(req, res, next) {

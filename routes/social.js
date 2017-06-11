@@ -20,4 +20,16 @@ exports.homePage = function(req, res){
 		}
 	},getUsers);
 	
+	
+
+	
+};
+
+exports.temp = function(req, res){
+	
+	
+	res.render('temp');
+	
+
+	
 };

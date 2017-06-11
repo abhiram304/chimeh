@@ -1,0 +1,284 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,600);
+body {
+		background-color: white;
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+		        user-select: none;
+}
+
+dl {
+		cursor: default;
+}
+
+.mobile-dashboard {
+		cursor: default;
+}
+
+dt {
+		cursor: pointer;
+}
+
+.mobile-dashboard {
+		width: 90%;
+		font: 14px "Roboto", Arial, sans-serif;
+		color: #666;
+		background-color: white;
+		padding: 5%;
+		border-radius: 0px;
+}
+
+p {
+		margin-bottom: 10px;
+}
+
+.hide {
+		display: none;
+}
+
+dt {
+		font-size: 19px;
+		color: black;
+		margin-bottom: 20px;
+		padding: 10px;
+		cursor: pointer;
+}
+
+div {
+		font-size: 19px;
+		color: black;
+		margin-bottom: 20px;
+		padding: 10px;
+		cursor: pointer;
+}
+
+dt.cs {
+		color: white;
+		background: #39c0e5;
+}
+
+dt.eng {
+		color: white;
+		background: #5CB860;
+}
+
+dt.math {
+		color: white;
+		background: #ffb405;
+}
+
+dt.physics {
+		color: white;
+		background: #f2595e;
+}
+
+div.science {
+		color: white;
+		cursor: default;
+		background: #30a37f;
+		opacity: 0.6;
+}
+
+dt.science {
+		color: white;
+		background: #30a37f;
+}
+
+dt.it {
+		color: white;
+		background: #5c6bc0;
+}
+
+dt.history {
+		color: white;
+		background: #8b72af;
+}
+
+div#unavailable,
+div#unavailable-2 {
+		color: white;
+		cursor: default;
+		background: #bfbfbf;
+}
+
+dd {
+		padding: 0px 0px 5px 5px;
+		color: #666666;
+		background: white;
+		border-radius: 0px;
+		border: 1px solid #e2dfd9;
+		margin: -10px 0 15px;
+		position: relative;
+}
+
+.unavailable-msg {
+		top: 0px;
+		width: 100%;
+		display: none;
+		margin: 0 auto;
+		color: #666666;
+		cursor: default;
+		font-size: 13px;
+		position: fixed;
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+		        user-select: none;
+		background-color: #E9E9E9;
+		padding: 10px 10px 10px 10px;
+		box-shadow: -2px 2px 7px -2px grey;
+		font-family: 'Roboto', Arial, sans-serif;
+}
+
+.closeAlert {
+		color: white;
+		outline: none;
+		cursor: default;
+		right: 25px;
+		top: 5px;
+		margin: 0 auto;
+		float: right;
+		border-radius: 1px;
+		text-align: center;
+		position: relative;
+		background: #1976D2;
+		border: 1px solid #1976D2;
+		padding: 5px 20px 5px 20px;
+		font-family: Arial, sans-serif;
+}
+
+.closeAlert:hover {
+		outline: none;
+		background: #1567B9;
+		border: 1px solid #1567B9;
+}
+
+.closeAlert:active {
+		outline: none;
+		background: #1567B9;
+		border: 1px solid #1567B9;
+}
+
+.closeAlert:focus {
+		outline: none;
+		background: #1567B9;
+		border: 1px solid #1567B9;
+}
+
+//Newly added 
+* {
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+html {
+  font: 100%/1.4 Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+body {
+  font-size: 0px;
+  font-family: Helvetica, sans-serif;
+  line-height: 20px;
+}
+
+.show-grid {
+  min-height: 100px;
+  magin-bottom: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #ddd;
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+/* grid ============================= */
+div[class*=span-], div[class*=flex-] {
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  zoom: 1;
+  *display: inline;
+}
+
+.container {
+  overflow: hidden;
+  max-width: 960px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.flex-1 {
+  width: 8.33333%;
+}
+
+.flex-2 {
+  width: 16.66667%;
+}
+
+.flex-3 {
+  width: 25%;
+}
+
+.flex-4 {
+  width: 33.33333%;
+}
+
+.flex-5 {
+  width: 41.66667%;
+}
+
+.flex-6 {
+  width: 50%;
+}
+
+.flex-7 {
+  width: 58.33333%;
+}
+
+.flex-8 {
+  width: 66.66667%;
+}
+
+.flex-9 {
+  width: 75%;
+}
+
+.flex-10 {
+  width: 83.33333%;
+}
+
+.flex-11 {
+  width: 91.66667%;
+}
+
+.flex-12 {
+  width: 100%;
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  div[class*=span-], div[class*=flex-] {
+    padding: 15px;
+  }
+}
+@media screen and (max-width: 720px) {
+  div[class*=span-], div[class*=flex-] {
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 540px) {
+  div[class*=span-], div[class*=flex-] {
+    width: 100%;
+  }
+}
+
