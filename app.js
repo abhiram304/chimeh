@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
   password : config.password,
   database : config.database
 });
-
+//EAAYAllYwB8EBAGpdHGX0d5oyTTC5fJnbnh15ck1ZBUgGJrD45cVfkhPVcSJbrJcO59YsVpvXhRkQ3tdap39D2g2OZBxmZBpQz7P8Pt1hjDYrFIIknjyHDCM9coMDJZBlFrsKZCHinln4nIx5ZBNerjOVXep8S9ZCIZBk9LROgZAMt7gZDZD
 //Connect to Database only if Config.js parameter is set.
 
 if(config.use_database==='true')
@@ -79,6 +79,10 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res){
   res.render('index', { user: req.user });
 });
+
+app.get('/start', function(req, res){
+	  res.render('assessment');
+	});
 
 app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
